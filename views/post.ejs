@@ -1,0 +1,13 @@
+<%- include('inc/header.ejs') %>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h2 class="mt-5 mb-1"><%= post.title %></h2>
+            <small class="text-muted"><%= post.date.toDateString() %></small>
+            <div class="mt-5">
+                <%- post.body %>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('inc/footer.ejs') %>

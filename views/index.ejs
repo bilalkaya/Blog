@@ -1,0 +1,21 @@
+<%- include('inc/header.ejs') %>
+<% posts.forEach((post) => { %>
+<div class="container">
+    <div class="card my-5 border-0">
+        <div class="row no-gutters justify-content-center align-items-stretch">
+            <div class="col-md-5 shadow bg-light">
+                <img src="images/uploads/<%= post.img %>" class="card-img" alt="<%= post.title %>">
+            </div>
+            <div class="col-md-5 shadow bg-light">
+                <div class="card-body">
+                    <h4 class="card-title"><a href='posts/<%= post.id %>'><%= post.title %></a></h4>
+                    <p class="card-text"><%= post.header %></p>
+                    <p><a href='posts/<%= post.id %>'>Read More</a></p>
+                    <p class="card-text"><small class="text-muted"><%= post.date.toDateString() %></small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% }); %>
+<%- include('inc/footer.ejs') %>

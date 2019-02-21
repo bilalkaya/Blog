@@ -1,0 +1,60 @@
+body {
+    font-family: 'Lato', sans-serif;
+    color: #555;
+}
+
+/*******************************
+HEADER
+*******************************/
+
+header {
+    box-shadow: 0 1px 5px -1px rgba(0, 0, 0, 0.1);
+}
+
+.header-text h1 {
+    font-family: monospace;
+    font-size: 3rem;
+    color: #666;
+}
+
+.header-text p {
+    font-size: 1rem;
+}
+
+/*******************************
+LINKS
+*******************************/
+
+/* Override Bootstrap Link Style */
+
+nav ul li a, nav ul li a:visited {
+    color: #888 !important;
+}
+
+nav ul li a:hover, nav ul li a:active {
+    color: #555 !important;
+    text-decoration: none;
+}
+
+nav ul li.active a {
+    color: #666 !important;
+}
+
+a:link, a:visited {
+    color: #555;
+}
+
+a:hover, a:active {
+    color: #333;
+    text-decoration: none;
+}
+
+/*******************************
+POST
+*******************************/
+
+.card-text {
+    color: #777;
+    font-size: 1rem;
+    font-weight: 300;
+}

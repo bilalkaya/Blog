@@ -1,0 +1,47 @@
+<%- include('inc/header.ejs') %>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <h2 class="text-center mb-5">Update Post</h2>
+            <form action='/admin/posts/<%= post.id %>' method="POST" id='postForm' enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="postTitle">Post Title</label>
+                    <input type="text" class="form-control" id="postTitle" name="postTitle" value='<%= post.title %>'>
+                </div>
+                <div class="form-group">
+                    <label for="postHeader">Post Header</label>
+                    <textarea class="form-control" id="postHeader" name="postHeader"
+                        rows="3"><%= post.header %></textarea>
+                </div>
+                <div class="form-group">
+                    <label for='postImage'>Post Image</label>
+                    <input type="file" class="form-control-file" name="postImage" id="postImage">
+                    <img src='/images/uploads/<%= post.img %>' width="150px" class="d-block mt-1" />
+                    <input type="hidden" name="oldImage" id="oldImage" value="<%= post.img %>">
+                </div>
+                <div class="form-group">
+                    <label for="postBody">Post Body</label>
+                    <input type="hidden" name="postBody" id="postBody" value="<%= post.body %>">
+                    <div id="summernote"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('inc/script.ejs') %>
+<script>
+    $('#summernote').summernote({
+        tabsize: 2,
+        height: 200
+    });
+
+    let postBody = $('#postBody').val();
+    $('#summernote').summernote('code', postBody);
+
+    $('#postForm').submit(e => {
+        const markupStr = $('#summernote').summernote('code');
+        $('#postBody').val(markupStr);
+    });
+</script>
+<%- include('inc/footer.ejs') %>
